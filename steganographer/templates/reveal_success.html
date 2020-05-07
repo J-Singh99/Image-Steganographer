@@ -1,0 +1,79 @@
+{% extends "base.html" %}
+
+{% block hero %}
+
+{% if current_user.is_authenticated %}
+  <h1>Your secrets were successfuly recovered, {{ current_user.username }}</h1>
+{% else %}
+	<h1>Your secrets were successfuly recovered.</h1>
+{% endif %}
+  
+{% if INP.typeStego == 'IMG' %}
+  <h2>View the generated image below</h2>
+  <a href="#about" class="btn-get-started scrollto">View Image</a>
+{% else %}
+  <h2>View the generated text below</h2>
+  <a href="#about" class="btn-get-started scrollto">View Text</a>
+{% endif %}
+
+
+
+
+{% endblock hero %}
+
+
+{% block about %}
+<!--======= About Section ======= -->
+    <section id="about" class="about">
+      <div class="container">
+
+        <div class="row">
+          
+          <div class="col-xl-6 col-lg-7" data-aos="zoom-in-right">
+            
+            {% if INP.typeStego == 'IMG' %}
+              <a href="{{url_for('static', filename='cvt_to_ovt/rvldimg/' + OTP.rvlImg)}}" download="{{ INP.fileNameIfImage }}">
+                <img src="{{url_for('static', filename='cvt_to_ovt/rvldimg/' + OTP.rvlImg)}}" class="img-fluid" alt="Resultant Image">
+              </a>
+           	{% else %}
+              <img src="{{url_for('static', filename='cvt_to_ovt/inpimg/' + INP.rvlimage)}}" class="img-fluid" alt="Resultant Image">
+            {% endif %}
+           	
+          </div>
+          
+          
+          <div class="col-xl-6 col-lg-5 pt-5 pt-lg-0">
+            
+            {% if INP.typeStego == 'IMG' %}
+              <h3 data-aos="fade-up">Revealed Image: {{ INP.fileNameIfImage }}</h3>
+            {% else %}
+              <h3 data-aos="fade-up">Revealed Text:<h3>
+            <p data-aos="fade-up">
+                {{ OTP.rvlMsg }}
+            </p>
+            {% endif %}
+            
+            <div class="icon-box" data-aos="fade-up">
+              <i class="bx bx-receipt"></i>
+              <h4>Hide Type</h4>
+              <p>The file contained a {{ INP.typeStego }} type steganography.</p>
+            </div>
+
+            <div class="icon-box" data-aos="fade-up" data-aos-delay="100">
+              <i class="bx bx-cube-alt"></i>
+              <h4>LSB</h4>
+              <p>The LSB number for this file is {{ INP.lsb }}</p>
+            </div>
+
+            <div class="icon-box" data-aos="fade-up" data-aos-delay="200">
+              <i class="bx bx-cube-alt"></i>
+              <h4>Security</h4>
+              <p>Your file couldn't have been revealed without those two KEYS! Your secret is safe.</p>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+    </section>  
+{% endblock about %}

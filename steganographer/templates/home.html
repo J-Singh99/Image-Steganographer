@@ -1,0 +1,317 @@
+{% extends "base.html" %}
+
+{% block hero %}
+
+{% if current_user.is_authenticated %}
+  <h1>Welcome to Steganography, {{ current_user.username }}</h1>
+{% else %}
+	<h1>Welcome to Steganography</h1>
+{% endif %}
+   <h2>Hide and Extract your way into digital privacy</h2>
+
+    <a href="#about" class="btn-get-started scrollto">Get Started</a>
+{% endblock hero %}
+
+
+{% block about %}
+	<!-- ======= About Section ======= -->
+    <section id="about" class="about">
+      <div class="container">
+
+        <div class="row">
+          
+          <div class="col-xl-6 col-lg-7" data-aos="zoom-in-right">
+            <img src="{{url_for('static', filename='WriteUp.jpg')}}" class="img-fluid" alt="About Image">
+          </div>
+          
+          <div class="col-xl-6 col-lg-5 pt-5 pt-lg-0">
+            
+            <h3 data-aos="fade-up">Overview</h3>
+            
+            <p data-aos="fade-up">
+                A jist of what we do here
+            </p>
+            
+            <div class="icon-box" data-aos="fade-up">
+              <i class="bx bx-receipt"></i>
+              <h4>Hide Data</h4>
+              <p>You can <a href="{{ url_for('hide') }}">hide</a> any file type within any other type. As of now, we allow hiding images and text inside images.</p>
+            </div>
+
+            <div class="icon-box" data-aos="fade-up" data-aos-delay="100">
+              <i class="bx bx-cube-alt"></i>
+              <h4>Extract Data</h4>
+              <p>You can extract and <a href="{{ url_for('reveal') }}">reveal</a> the hidden data inside files.</p>
+            </div>
+
+            <div class="icon-box" data-aos="fade-up" data-aos-delay="200">
+              <i class="bx bx-cube-alt"></i>
+              <h4>Security</h4>
+              <p>Extraction requires KEYS that are set while hiding the data, which ensure your data's safety even if it falls into the wrong hands.</p>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+    </section> <!-- End About-->
+{% endblock about %}
+
+{% block features %}
+	<!-- ======= Features Section ======= -->
+	<section id="features" class="features">
+	  <div class="container">
+		<h2 class="section-title aos-init aos-animate" data-aos="fade-down">
+		How to Hide Data
+		</h2>
+	    <div class="row">
+	    
+	      <div class="col-lg-4 mb-5 mb-lg-0" data-aos="fade-right">
+	        <ul class="nav nav-tabs flex-column">
+	          
+	          <li class="nav-item">
+	            <a class="nav-link active show" data-toggle="tab" href="#tab-1">
+	              <h4>Select Cover Image</h4>
+	              <p>Select image under which you want to hide data.</p>
+	            </a>
+	          </li>
+	          
+	          <li class="nav-item mt-2">
+	            <a class="nav-link" data-toggle="tab" href="#tab-2">
+	              <h4>Select Type</h4>
+	              <p>Select the type of data you will hide; text or Image.</p>
+	            </a>
+	          </li>
+	          <li class="nav-item mt-2">
+	            <a class="nav-link" data-toggle="tab" href="#tab-3">
+	              <h4>Select LSB</h4>
+	              <p>Chose from 1, 2 or 4. Each key results in a different type of steganography, making the process more secure.</p>
+	            </a>
+	          </li>
+	          <li class="nav-item mt-2">
+	            <a class="nav-link" data-toggle="tab" href="#tab-4">
+	              <h4>Share Away</h4>
+	              <p>You can now share the generated image without worrying about the data (hidden inside) being discovered.</p>
+	            </a>
+	          </li>
+	        </ul>
+	      </div>
+
+	      <div class="col-lg-7 ml-auto" data-aos="fade-left">
+	        <div class="tab-content">
+	          
+	          <div class="tab-pane active show" id="tab-1">
+	            <figure>
+	              <img src="{{url_for('static', filename='img/features-1.png')}}" alt="" class="img-fluid">
+	            </figure>
+	          </div>
+	          
+	          <div class="tab-pane" id="tab-2">
+	            <figure>
+	              <img src="{{url_for('static', filename='img/features-2.png')}}" alt="" class="img-fluid">
+	            </figure>
+	          </div>
+	          
+	          <div class="tab-pane" id="tab-3">
+	            <figure>
+	              <img src="{{url_for('static', filename='img/features-3.png')}}" alt="" class="img-fluid">
+	            </figure>
+	          </div>
+	          
+	          <div class="tab-pane" id="tab-4">
+	            <figure>
+	              <img src="{{url_for('static', filename='img/features-4.png')}}" alt="" class="img-fluid">
+	            </figure>
+	          </div>
+	        
+	        </div>
+	      </div>
+	    </div>
+		</div>
+	</section>
+
+	<section id="features" class="features">
+	  <div class="container">
+		<h2 class="section-title aos-init aos-animate" data-aos="fade-up">
+		How to Extract Data
+		</h2>
+		
+		<div class="row">
+	    
+	    	<div class="col-lg-7 ml-auto" data-aos="fade-left">
+	        <div class="tab-content">
+	          <div class="tab-pane active show" id="tab-5">
+	            <figure>
+	              <img src="{{url_for('static', filename='img/features-2.png')}}" alt="" class="img-fluid">
+	            </figure>
+	          </div>
+	          <div class="tab-pane" id="tab-6">
+	            <figure>
+	              <img src="{{url_for('static', filename='img/features-4.png')}}" alt="" class="img-fluid">
+	            </figure>
+	          </div>
+	          <div class="tab-pane" id="tab-7">
+	            <figure>
+	              <img src="{{url_for('static', filename='img/features-1.png')}}" alt="" class="img-fluid">
+	            </figure>
+	          </div>
+	          <div class="tab-pane" id="tab-8">
+	            <figure>
+	              <img src="{{url_for('static', filename='img/features-3.png')}}" alt="" class="img-fluid">
+	            </figure>
+	          </div>
+	        </div>
+	      </div>
+
+	      <div class="col-lg-4 mb-5 mb-lg-0" data-aos="fade-right">
+	        <ul class="nav nav-tabs flex-column">
+	          <li class="nav-item">
+	            <a class="nav-link active show" data-toggle="tab" href="#tab-5">
+	              <h4>Obtain the Image</h4>
+	              <p>Acquire the image which has some hidden data.</p>
+	            </a>
+	          </li>
+	          <li class="nav-item mt-2">
+	            <a class="nav-link" data-toggle="tab" href="#tab-6">
+	              <h4>Select Type</h4>
+	              <p>Select the type of data which was hidden; Text or Image.</p>
+	            </a>
+	          </li>
+	          <li class="nav-item mt-2">
+	            <a class="nav-link" data-toggle="tab" href="#tab-7">
+	              <h4>Select LSB</h4>
+	              <p>Select LSB specified while hidding the data.</p>
+	            </a>
+	          </li>
+	          <li class="nav-item mt-2">
+	            <a class="nav-link" data-toggle="tab" href="#tab-8">
+	              <h4>Scheme Away</h4>
+	              <p>The hidden data is returned. You can now use your data without worrying about someone else discovering it!!</p>
+	            </a>
+	          </li>
+	        </ul>
+	      </div>
+	    
+	    </div>
+
+	  </div>
+	</section><!-- End Features Section -->
+{% endblock features %}
+
+{% block services %}
+	<!-- ======= Services Section ======= -->
+    <section id="services" class="services section-bg">
+      <div class="container">
+
+        <div class="section-title" data-aos="fade-up">
+          <h2>Notes</h2>
+          <p>This application was made keeping in mind the privacy concerns of every digital human. In times where data is more costly than blood, it is mandatory that we take precaution every way we can. This simplistic, minimilistic framework makes information hiding and transfer secure, fun and extremely easy, so the users don't have to worry about issues like privacy, leaking of data, etc. while sharing digital data.</p>
+        </div>
+
+        <div class="row">
+          
+          <div class="col-md-6 col-lg-3 d-flex align-items-stretch mb-5 mb-lg-0" data-aos="fade-up" data-aos-delay="100">
+            <div class="icon-box icon-box-cyan">
+              <div class="icon"><i class="bx bx-file"></i></div>
+              <h4 class="title"><a href="#services">Secure</a></h4>
+              <p class="description">Hiding/Revealing both require atleast two KEYS (Type and LSB) which ensure data security even if the file is compromised.</p>
+            </div>
+          </div>
+
+          <div class="col-md-6 col-lg-3 d-flex align-items-stretch mb-5 mb-lg-0" data-aos="fade-up">
+            <div class="icon-box icon-box-pink">
+              <div class="icon"><i class="bx bxl-dribbble"></i></div>
+              <h4 class="title"><a href="#services">Better than Encryption</a></h4>
+              <p class="description">Steganography is better as it completely hides the existence of 'hidden' data. Combined, they are even more secure and powerful.</p>
+            </div>
+          </div>
+
+          <div class="col-md-6 col-lg-3 d-flex align-items-stretch mb-5 mb-lg-0" data-aos="fade-up" data-aos-delay="200">
+            <div class="icon-box icon-box-green">
+              <div class="icon"><i class="bx bx-tachometer"></i></div>
+              <h4 class="title"><a href="#">Easy to Use</a></h4>
+              <p class="description">The website is built in such a way that data hiding and revealing is as easy as clicking a button, literally. The user can easily hide, share, and extract sensitive data without a worry.</p>
+            </div>
+          </div>
+
+          <div class="col-md-6 col-lg-3 d-flex align-items-stretch mb-5 mb-lg-0" data-aos="fade-up" data-aos-delay="300">
+            <div class="icon-box icon-box-blue">
+              <div class="icon"><i class="bx bx-world"></i></div>
+              <h4 class="title"><a href="#">Scope</a></h4>
+              <p class="description">The end goal is to be able to hide any file type inside any other file type. While this goal is not too optimistic, and a lot of other conversions already exist, but their efficiency and variety are still limited.</p>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section><!-- End Services Section -->
+{% endblock services %}
+
+{% block footer %}
+
+    <!-- ======= Footer ======= -->
+    <footer id="footer" style="line-height: 1px">
+      <div class="container">
+          <div class="credits">
+          Designed by <a href="https://github.com/J-Singh99">Jaspreet & Priyanka (lol)</a>
+        </div>
+      </div>
+    </footer><!-- End Footer -->
+
+{% endblock footer %}
+<!-- TEAM 
+ block team 
+	
+    <section id="team" class="team">
+      <div class="container">
+
+        <div class="section-title" data-aos="fade-up">
+          <h2>Team</h2>
+          <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat sit in iste officiis commodi quidem hic quas.</p>
+        </div>
+
+        <div class="row">
+
+          <div class="col-xl-3 col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
+            <div class="member">
+              <img src="assets/img/team/team-3.jpg" class="img-fluid" alt="">
+              <div class="member-info">
+                <div class="member-info-content">
+                  <h4>William Anderson</h4>
+                  <span>CTO</span>
+                </div>
+                <div class="social">
+                  <a href=""><i class="icofont-twitter"></i></a>
+                  <a href=""><i class="icofont-facebook"></i></a>
+                  <a href=""><i class="icofont-instagram"></i></a>
+                  <a href=""><i class="icofont-linkedin"></i></a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-xl-3 col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
+            <div class="member">
+              <img src="assets/img/team/team-4.jpg" class="img-fluid" alt="">
+              <div class="member-info">
+                <div class="member-info-content">
+                  <h4>Amanda Jepson</h4>
+                  <span>Accountant</span>
+                </div>
+                <div class="social">
+                  <a href=""><i class="icofont-twitter"></i></a>
+                  <a href=""><i class="icofont-facebook"></i></a>
+                  <a href=""><i class="icofont-instagram"></i></a>
+                  <a href=""><i class="icofont-linkedin"></i></a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+ endblock team 
+-->

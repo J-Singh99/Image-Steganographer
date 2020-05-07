@@ -1,0 +1,85 @@
+{% extends "base.html" %}
+
+{% block hero %}
+
+    <h1>A page for just you, {{ current_user.username }}</h1>
+    <h2>This is your profile page.</h2>
+    <h2>View your activty, or update your details</h2>
+
+    <a href="#features" class="btn-get-started scrollto">View</a>
+    <a href="{{ url_for('account', username=current_user.username) }}" class="btn-get-started scrollto">Update</a>
+
+{% endblock hero %}
+
+{% block features %}
+    <section id="features" class="features">
+      <div class="container">
+
+        <div class="row">
+        
+          <div class="col-lg-4 mb-5 mb-lg-0" data-aos="fade-right">
+            <ul class="nav nav-tabs flex-column">
+              
+              <li class="nav-item">
+                <a class="nav-link active show" data-toggle="tab" href="#help">
+                  <h4>Covert Images</h4>
+                  <p>Here are all your images with hidden data.</p>
+                </a>
+              </li>
+
+              {% for pic in HIDES %}
+                <li class="nav-item mt-2">
+                  <a class="nav-link" data-toggle="tab" href="#tab-{{pic.id}}">
+                    
+                    <h4>{{ pic.fileName }}</h4>
+                    <p>Steganography type: {{ pic.typeStego }}</p>
+                                        
+                  </a>
+                </li>
+              {% endfor %}
+
+            </ul>
+          </div>
+
+          <div class="col-lg-7 ml-auto" data-aos="fade-left">
+            <div class="tab-content">
+            
+            <div class="tab-pane active show" id="help">
+              <figure>
+                <img src="{{url_for('static', filename='img/features-4.png')}}" alt="" class="img-fluid">
+              </figure>
+            </div>
+            {% for fin_pic in hide_list %}
+              <div class="tab-pane" id="tab-{{fin_pic.mainInfo.id}}">
+                <figure>
+                
+                  <a href="{{url_for('static', filename='ovt_to_cvt/otpimg/' + fin_pic.covertImg)}}" download="{{ fin_pic.mainInfo.fileName }}">
+                  <img src="{{url_for('static', filename='ovt_to_cvt/otpimg/' + fin_pic.covertImg)}}" alt="" class="img-fluid">
+                  </a>
+
+                </figure>
+              </div>
+            {% endfor %}
+            </div>
+          </div> 
+
+        </div>
+
+      </div>
+    </section>
+{% endblock features %}
+
+
+{% block services %}
+    
+      <div class="container">
+
+        <div class="section-title" data-aos="fade-up">
+          <h2>Foot Note</h2>
+          <p>We don't usually display your revealed images/texts due to privacy concerns.</p>
+        </div>
+
+      </div>
+    
+
+{% endblock services %}

@@ -1,0 +1,63 @@
+{% extends "base.html" %}
+
+{% block hero %}
+
+{% if current_user.is_authenticated %}
+  <h1>Your secrets were successfuly hidden, {{ current_user.username }}</h1>
+{% else %}
+	<h1>Your secrets were successfuly hidden.</h1>
+{% endif %}
+   <h2>View the generated image below</h2>
+
+    <a href="#about" class="btn-get-started scrollto">View Image</a>
+{% endblock hero %}
+
+
+{% block about %}
+<!--======= About Section ======= -->
+    <section id="about" class="about">
+      <div class="container">
+
+        <div class="row">
+          
+          <div class="col-xl-6 col-lg-7" data-aos="zoom-in-right">
+            
+            <a href="{{url_for('static', filename='ovt_to_cvt/otpimg/' + OTP.covertImg)}}" download="{{ INP.fileName }}">
+            
+            <img src="{{url_for('static', filename='ovt_to_cvt/otpimg/' + OTP.covertImg)}}" class="img-fluid" alt="Resultant Image">
+           	
+           	</a>
+          </div>
+          
+          <div class="col-xl-6 col-lg-5 pt-5 pt-lg-0">
+            
+            <h3 data-aos="fade-up">Covert Image: {{ INP.fileName }}</h3>
+            
+            <p data-aos="fade-up">
+                Image with the hidden secret.
+            </p>
+            
+            <div class="icon-box" data-aos="fade-up">
+              <i class="bx bx-receipt"></i>
+              <h4>Hide Type</h4>
+              <p>This image contains a {{ INP.typeStego }} type steganography.</p>
+            </div>
+
+            <div class="icon-box" data-aos="fade-up" data-aos-delay="100">
+              <i class="bx bx-cube-alt"></i>
+              <h4>LSB</h4>
+              <p>The LSB number for this file is {{ INP.lsb }}</p>
+            </div>
+
+            <div class="icon-box" data-aos="fade-up" data-aos-delay="200">
+              <i class="bx bx-cube-alt"></i>
+              <h4>Security</h4>
+              <p>Please remember the above two KEYS! You cannot reveal the information hidden without them.</p>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+    </section>  
+{% endblock about %}

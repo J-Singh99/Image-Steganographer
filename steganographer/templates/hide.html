@@ -1,0 +1,122 @@
+{% extends "base.html" %}
+
+
+{% block hero %}
+  
+	<div class="col-lg-10" >
+		<form method="POST" action="" enctype="multipart/form-data">
+			
+			{{  form.hidden_tag() }}
+			
+		  <legend class="border-bottom mb-4" style="font-size:2rem; margin-top: 10px; color:#fff;">Hide Your Secrets</legend>
+			<fieldset class="form-group">
+				
+
+
+				<div class="form-row" style="display:flex; justify-content:space-between;">
+					
+					<div class="form-group col-lg-4 mb-5 mb-lg-0" style=" text-align: left;">
+	                    
+	                    {{ form.typeStego.label(class="form-control-label", style="color:#fff;font-size: 17px;font-weight: 400;") }}
+	                    
+	                    {% if form.typeStego.errors %}
+	                        {{ form.typeStego(class="form-control form-control-lg is-invalid") }}
+	                        <div class="invalid-feedback">
+	                            {% for error in form.typeStego.errors %}
+	                                <span>{{ error }}</span>
+	                            {% endfor %}
+	                        </div>
+	                    {% else %}
+	                        {{ form.typeStego(class="form-control form-control-lg") }}
+	                    {% endif %}
+	                </div>
+					
+					<div class="form-group col-lg-4" style="text-align: center;">
+	                    {{ form.lsb.label(class="form-control-label", style="color:#fff;font-size: 17px;font-weight: 400;") }}
+	                    {% if form.lsb.errors %}
+	                        {{ form.lsb(class="form-control form-control-lg is-invalid") }}
+	                        <div class="invalid-feedback">
+	                            {% for error in form.lsb.errors %}
+	                                <span>{{ error }}</span>
+	                            {% endfor %}
+	                        </div>
+	                    {% else %}
+	                        {{ form.lsb(class="form-control form-control-lg") }}
+	                    {% endif %}
+	                </div>
+
+				</div>
+
+                <div class="form-group">
+                    {{ form.inputImage.label(class="form-control-label", style="color:#fff;font-size: 17px;font-weight: 400;") }}
+                    {% if form.inputImage.errors %}
+                        {{ form.inputImage(class="form-control form-control-lg is-invalid") }}
+                        <div class="invalid-feedback">
+                            {% for error in form.inputImage.errors %}
+                                <span>{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        {{ form.inputImage(class="form-control form-control-lg") }}
+                    {% endif %}
+                </div>
+
+				<div class="form-group">
+                    {{ form.fileName.label(class="form-control-label", style="color:#fff;font-size: 17px;font-weight: 400;") }}
+                    {% if form.fileName.errors %}
+                        {{ form.fileName(class="form-control form-control-lg is-invalid") }}
+                        <div class="invalid-feedback">
+                            {% for error in form.fileName.errors %}
+                                <span>{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        {{ form.fileName(class="form-control form-control-lg") }}
+                    {% endif %}
+                </div>
+
+                <div class="form-row" style="display:flex; justify-content:space-between;">
+					
+					<div class="form-group">
+	                    {{ form.hideText.label(class="form-control-label", style="color:#fff;font-size: 17px;font-weight: 400;") }}
+	                    {% if form.hideText.errors %}
+	                        {{ form.hideText(class="form-control form-control-lg is-invalid") }}
+	                        <div class="invalid-feedback">
+	                            {% for error in form.hideText.errors %}
+	                                <span>{{ error }}</span>
+	                            {% endfor %}
+	                        </div>
+	                    {% else %}
+	                        {{ form.hideText(class="form-control form-control-lg") }}
+	                    {% endif %}
+	                </div>
+					
+					<div class="form-group" style="text-align: center;">
+	                    {{ form.hideImg.label(class="form-control-label", style="color:#fff; font-size: 17px; font-weight: 400;") }}
+	                    {% if form.hideImg.errors %}
+	                        {{ form.hideImg(class="form-control form-control-lg is-invalid") }}
+	                        <div class="invalid-feedback">
+	                            {% for error in form.hideImg.errors %}
+	                                <span>{{ error }}</span>
+	                            {% endfor %}
+	                        </div>
+	                    {% else %}
+	                        {{ form.hideImg(class="form-control form-control-lg") }}
+	                    {% endif %}
+	                </div>
+
+				</div>
+
+			</fieldset>
+
+			<div class="form-group text-left">
+				{{ form.submit(class = "btn btn-outline-info") }}
+			</div>
+		</form>
+	</div>
+
+<style>
+		div.2 {float: right;}
+</style>
+
+{% endblock hero %}

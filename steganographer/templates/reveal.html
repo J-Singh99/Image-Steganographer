@@ -1,0 +1,118 @@
+{% extends "base.html" %}
+
+
+{% block hero %}
+  
+
+
+	{% with messages = get_flashed_messages(with_categories=true) %}
+		{% if messages %}
+			{% for category, message in messages %}
+				<div class="alert alert-{{ category }}">
+					{{ message }}					
+				</div>	
+			{% endfor %}
+		{% endif %}
+	{% endwith %}
+	
+
+
+	<div class="col-lg-10" >
+		<form method="POST" action="" enctype="multipart/form-data">
+			
+			{{  form.hidden_tag() }}
+			
+			<fieldset class="form-group" >
+				
+				<legend class="border-bottom mb-4" style="font-size:2rem; color:#fff">Reveal Your Secrets</legend>
+
+
+				<div class="form-row" style="display:flex; justify-content:space-between;">
+					
+					<div class="form-group col-lg-4 mb-5 mb-lg-0" style="text-align: left;">
+	                    
+	                    {{ form.typeStego.label(class="form-control-label", style="color:#fff;font-size: 17px;font-weight: 400;") }}
+	                    
+	                    {% if form.typeStego.errors %}
+	                        {{ form.typeStego(class="form-control form-control-lg is-invalid") }}
+	                        <div class="invalid-feedback">
+	                            {% for error in form.typeStego.errors %}
+	                                <span>{{ error }}</span>
+	                            {% endfor %}
+	                        </div>
+	                    {% else %}
+	                        {{ form.typeStego(class="form-control form-control-lg") }}
+	                    {% endif %}
+	                </div>
+					
+					<div class="form-group col-lg-4" style="text-align: right;">
+	                    {{ form.lsb.label(class="form-control-label", style="text-align: right;color:#fff;font-size: 17px;font-weight: 400;") }}
+	                    {% if form.lsb.errors %}
+	                        {{ form.lsb(class="form-control form-control-lg is-invalid") }}
+	                        <div class="invalid-feedback">
+	                            {% for error in form.lsb.errors %}
+	                                <span>{{ error }}</span>
+	                            {% endfor %}
+	                        </div>
+	                    {% else %}
+	                        {{ form.lsb(class="form-control form-control-lg") }}
+	                    {% endif %}
+	                </div>
+
+				</div>
+
+				<div class="form-row" style="display:flex; justify-content:space-between; text-align: left;">
+					
+					<div class="form-group">
+	                    {{ form.rvlimage.label(class="form-control-label", style="text-align: left; color:#fff;font-size: 17px;font-weight: 400;") }}
+	                    {% if form.rvlimage.errors %}
+	                        {{ form.rvlimage(class="form-control form-control-lg is-invalid") }}
+	                        <div class="invalid-feedback">
+	                            {% for error in form.rvlimage.errors %}
+	                                <span>{{ error }}</span>
+	                            {% endfor %}
+	                        </div>
+	                    {% else %}
+	                        {{ form.rvlimage(class="form-control form-control-lg") }}
+	                    {% endif %}
+	                </div>
+
+	                <div class="form-group" style="text-align: right;">
+	                    {{ form.hiddenFileName.label(class="form-control-label", style="text-align: right;color:#fff;font-size: 17px;font-weight: 400;") }}
+	                    {% if form.hiddenFileName.errors %}
+	                        {{ form.hiddenFileName(class="form-control form-control-lg is-invalid") }}
+	                        <div class="invalid-feedback">
+	                            {% for error in form.hiddenFileName.errors %}
+	                                <span>{{ error }}</span>
+	                            {% endfor %}
+	                        </div>
+	                    {% else %}
+	                        {{ form.hiddenFileName(class="form-control form-control-lg") }}
+	                    {% endif %}
+	                </div>
+	            </div>
+
+			</fieldset>
+
+			<div class="form-group text-left" >
+				{{ form.submit(class = "btn btn-outline-info") }}
+			</div>
+		</form>
+	</div>
+
+	
+
+
+	<div class="border-top pt-3 text-left">
+		<small class="">
+			Here by mistake? 
+			<a href="{{ url_for('home') }}" class="btn-get-started scrollto">Go Home</a>
+		</small>
+	</div>
+
+
+<style>
+		div.2 {float: right;}
+</style>
+
+{% endblock hero %}
