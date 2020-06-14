@@ -46,5 +46,5 @@ link: https://github.com/J-Singh99/Image-Steganographer.git
   8800112953
   
 **PS**:
-  The website code for the wesite has also been uploaded.
+  The  code for the wesite has also been uploaded.
   
