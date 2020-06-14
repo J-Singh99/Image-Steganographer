@@ -1,4 +1,4 @@
-Welcome to the #Steganographer!
+Welcome to the **Steganographer**!
 
 This application's sole purpose is to guard one's privacy over the internet (and real life)
 while doing something as simple as sharing a file. 
@@ -9,21 +9,22 @@ This Steganographer offers the ability to hide Image and Text inside another ima
 More can be found about this in the 'Write Up.odt' file which explains the vision, the concept
 and the scope of this project, along with it's benefits and shortcomings. 
 
+**************
 **** NOTE ****
-This folder includes the Command Line Interface Version of the project.
-The complete project along with the frontend and database handling has been uploaded to Github (due to space constraints
-link: https://github.com/J-Singh99/Image-Steganographer.git)
+This repo includes the Command Line Interface Version of the project as well as the webiste.
+The complete project along with the frontend and database handling has been uploaded to Github (due to space constraints)
+link: https://github.com/J-Singh99/Image-Steganographer.git
 **************
 
--> HOW TO USE (HIDE)
+-> HOW TO USE (**HIDE**)
   1. Keep ready a suitable image (size greater than 50KB works best!) in the same file as the project.
   2. If you want to hide text, you can directly enter it into the program. 
       For larger texts, the command 'cat filename.txt' should work (for LINUX/MAC).
   3. If you want to hide an image, chose a much smaller sized image.
-  4. Run Hide.py (through the command line). Thats it!! 
+  4. Run **Hide.py** (through the command line). Thats it!! 
   5. The CLI is all set to help you out.
 
--> HOW TO USE (REVEAL)
+-> HOW TO USE (**REVEAL**)
   1. Assuming you have an image with some hidden information, keep the image ready in the same file.
   2. Run Reveal.py (through the command line). Thats it!!!
   3. The CLI is all set to help you out.
@@ -44,4 +45,6 @@ link: https://github.com/J-Singh99/Image-Steganographer.git)
   jaspreet099@gmail.com
   8800112953
   
+**PS**:
+  The website code for the wesite has also been uploaded.
   
