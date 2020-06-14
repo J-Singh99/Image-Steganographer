@@ -43,6 +43,7 @@ link: https://github.com/J-Singh99/Image-Steganographer.git
 -> MORE INFORMATION
   In case of any queries, please feel free to contact:
   
-  Jaspreet Singh (18103107)
-  jaspreet099@gmail.com
-  8800112953
+# Dev Info #  
+Jaspreet Singh (18103107)
+jaspreet099@gmail.com
+8800112953
