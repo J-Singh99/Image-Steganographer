@@ -16,7 +16,7 @@ The complete project along with the frontend and database handling has been uplo
 link: https://github.com/J-Singh99/Image-Steganographer.git
 **************
 
-############# For the CLI #############  
+# For the CLI #  
 
 -> HOW TO USE (**HIDE**)
   1. Keep ready a suitable image (size greater than 50KB works best!) in the same file as the project.
