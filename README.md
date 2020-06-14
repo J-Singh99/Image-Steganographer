@@ -16,6 +16,8 @@ The complete project along with the frontend and database handling has been uplo
 link: https://github.com/J-Singh99/Image-Steganographer.git
 **************
 
+############# For the CLI #############  
+
 -> HOW TO USE (**HIDE**)
   1. Keep ready a suitable image (size greater than 50KB works best!) in the same file as the project.
   2. If you want to hide text, you can directly enter it into the program. 
@@ -44,7 +46,3 @@ link: https://github.com/J-Singh99/Image-Steganographer.git
   Jaspreet Singh (18103107)
   jaspreet099@gmail.com
   8800112953
-  
-**PS**:
-  The  code for the wesite has also been uploaded.
-  
